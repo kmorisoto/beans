@@ -12,6 +12,9 @@ export const Root = () => {
                         <li>
                             <Link to={"hello-jp"}>こんにちは</Link>
                         </li>
+                        <li>
+                            <Link to={"xml-to-json"}>XML to JSON</Link>
+                        </li>
                     </ul>
                 </nav>
             </div>

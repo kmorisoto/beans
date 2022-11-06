@@ -6,6 +6,7 @@ import {ErrorPage} from "./error-page";
 import {Hello} from "./routes/hello";
 import {HelloJp} from "./routes/hello.jp";
 import {createTheme, CssBaseline, ThemeProvider} from "@mui/material";
+import {XmlToJson} from "./routes/xmlToJson";
 
 const theme = createTheme({
     palette: {
@@ -28,6 +29,10 @@ function App() {
                 {
                     path: "hello-jp",
                     element: <HelloJp/>,
+                },
+                {
+                    path: "xml-to-json",
+                    element: <XmlToJson/>,
                 },
             ]
         },
