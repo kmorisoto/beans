@@ -1,26 +1,49 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {Root} from "./routes/root";
+import {ErrorPage} from "./error-page";
+import {Hello} from "./routes/hello";
+import {HelloJp} from "./routes/hello.jp";
+import {createTheme, CssBaseline, ThemeProvider} from "@mui/material";
+import {XmlToJson} from "./routes/xmlToJson";
+
+const theme = createTheme({
+    palette: {
+        mode: 'light',
+    },
+});
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const router = createBrowserRouter([
+        {
+            path: "/",
+            element: <Root/>,
+            errorElement: <ErrorPage/>,
+            children: [
+                {
+                    path: "hello",
+                    element: <Hello/>,
+                },
+                {
+                    path: "hello-jp",
+                    element: <HelloJp/>,
+                },
+                {
+                    path: "xml-to-json",
+                    element: <XmlToJson/>,
+                },
+            ]
+        },
+    ])
+
+    return (
+        <ThemeProvider theme={theme}>
+            <CssBaseline/>
+            <RouterProvider router={router}/>
+        </ThemeProvider>
+    );
 }
 
 export default App;
