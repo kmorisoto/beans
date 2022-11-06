@@ -7,9 +7,9 @@ import {Hello} from "./routes/hello";
 import {HelloJp} from "./routes/hello.jp";
 import {createTheme, CssBaseline, ThemeProvider} from "@mui/material";
 
-const darkTheme = createTheme({
+const theme = createTheme({
     palette: {
-        mode: 'dark',
+        mode: 'light',
     },
 });
 
@@ -34,7 +34,7 @@ function App() {
     ])
 
     return (
-        <ThemeProvider theme={darkTheme}>
+        <ThemeProvider theme={theme}>
             <CssBaseline/>
             <RouterProvider router={router}/>
         </ThemeProvider>
